@@ -1,0 +1,126 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Form e eventos</title>
+        <link rel="stylesheet" href="./style.css">
+    </head>
+    <body>
+        <h1>Pizzaria da cidade</h1>
+        <p>Selecione as alternativas a baixo:</p>
+        <form action="" autocomplete="off" id="formPizza" method="POST">
+            <fieldset>
+                <legend>Deixe o pedido do seu jeito:</legend>
+                <div>
+                    <label for="baseMolho">Molho:
+                        <select name="baseMolho" id="baseMolho">
+                            <option value="tomate">Molho de tomate (padrão)</option>
+                            <option value="azeite">Azeite de oliva (+R$1)</option>
+                            <option value="molhoBranco">Molho branco (+R$2)</option>
+                        </select>
+                    </label>
+                </div>
+                <div>
+                    <label for="tamanhopizza">Tamanho da Pizza:
+                        <select name="tamanhopizza" id="tamanhopizza">
+                            <option value="pequena">pequena (R$5.00)</option>
+                            <option value="media">media (R$7.00)</option>
+                            <option value="grande">grande (R$12.00)</option>
+                        </select>
+                    </label>
+                </div>
+                <div id="recheio">
+                    <p>Recheios: (R$2 cada):</p>
+                    <label><input class="recheiopizza" type="checkbox" name="catupiry" id="catupiry">Catupiry</label>
+                    <label><input class="recheiopizza" type="checkbox" name="cheddar" id="cheddar">Cheddar</label>
+                    <label><input class="recheiopizza" type="checkbox" name="azeitona" id="azeitona">Azeitona</label>
+                    <label><input class="recheiopizza" type="checkbox" name="cebola" id="cebola">Cebola</label>
+                    <label><input class="recheiopizza" type="checkbox" name="ervilha" id="ervilha">Ervilha</label>
+                </div>
+                <div>
+                    <p>Refrigerante (R$6.00 cada):</p>
+                    <label for="cocacola">Coca-Cola:<input type="number" id="cocacola" value="0"></label>
+                    <label for="dietcocacola">Coca-Cola Diet:<input type="number" id="dietcocacola" value="0"></label>
+                    <label for="sprite">Sprite:<input type="number" id="sprite" value="0"></label>
+                </div>
+                <div class="pedidototal">
+                    Valor Total: R$<output name="total" id="total"></output>
+                </div>
+            </fieldset>
+        </form>
+        <button id="btnsubmit">Enviar</button>
+        <button id="btnreset">Limpar formulario</button>
+        <script>
+            window.addEventListener("load", e => {
+                // "ouvir" as alterações de controle de formulário à medida que elas acontecem imediatamente
+                document.getElementById("formPizza").addEventListener("input", atualizarValorTotal);
+
+                // executa uma redefinição personalizada do formulário quando o usuário clica em redefinir
+                // para que possamos disparar nosso próprio evento "resetfinished"
+                document.getElementById("formPizza").addEventListener("reset", e => {
+                    e.target.reset();
+                });
+                document.getElementById("btnreset").addEventListener("click", e => {
+                // Aciona o evento reset manualmente para acionarmos nosso próprio custom
+                // evento para redefinir o valor total do formulário
+                    evt = new Event("reset");
+                    document.getElementById("formPizza").dispatchEvent(evt);
+                    evt = new Event("resetfinished");
+                    document.getElementById("formPizza").dispatchEvent(evt);
+                });
+                // Quando nosso evento resetfinished for acionado, atualizar o valor total do formulário
+                // Todos os controles do formulário devem ser redefinidos neste ponto
+                document.getElementById("formPizza").addEventListener("resetfinished", e => {
+                    atualizarValorTotal();
+                });
+
+                // inicializa o valor total
+                atualizarValorTotal();
+            });
+
+            function atualizarValorTotal() {
+                let totalItens = document.getElementById("total");
+                let valortotal = 0.0;
+
+                switch (document.getElementById("baseMolho").selectedIndex) {
+                    case 1:
+                        valortotal += 1;
+                        break;
+                    case 2:
+                        valortotal += 2;
+                        break;
+                }
+
+                switch (document.getElementById("tamanhopizza").selectedIndex) {
+                    case 0:
+                        valortotal += 5.0;
+                        break;
+                    case 1:
+                        valortotal += 7.0;
+                        break;
+                    case 2:
+                        valortotal += 12.0;
+                        break;
+                }
+
+                tops = document.getElementById("recheio").getElementsByClassName("recheiopizza");
+                for (const topping of tops) {
+                    if (topping.checked) {
+                        valortotal += 2;
+                    }
+                }
+
+                if (!isNaN(val = parseInt(document.getElementById("cocacola").value))) {
+                    valortotal += val * 6;
+                }
+                if (!isNaN(val = parseInt(document.getElementById("dietcocacola").value))) {
+                    valortotal += val * 6;
+                }
+                if (!isNaN(val = parseInt(document.getElementById("sprite").value))) {
+                    valortotal += val * 6;
+                }
+
+                totalItens.value = valortotal.toFixed(2);
+            }
+        </script>
+    </body>
+</html>
