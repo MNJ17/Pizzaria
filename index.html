@@ -1,176 +1,303 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-
-<head>
+  <head>
     <title>Form e eventos</title>
-    <link rel="stylesheet" type="text/css" href="./style.css">
-</head>
+    <link rel="stylesheet" type="text/css" href="./style.css" />
+  </head>
 
-<body class="light-theme">
+  <body class="light-theme">
     <h1>Pizzaria Os Romanos</h1>
     <p>Selecione as alternativas a baixo:</p>
     <form action="" autocomplete="off" id="formPizza" method="POST">
-        <fieldset>
-            <legend>Monte o seu pedido:</legend>
-            <div>
-                <label for="baseMolho">Molho:
-                    <select name="baseMolho" id="baseMolho">
-                        <option value="tomate">Molho de Tomate (padrão)</option>
-                        <option value="azeite">Azeite de Oliva (+R$3)</option>
-                        <option value="molhoBranco">Molho Branco (+R$5)</option>
-                        <option value="molhoparisiense">Molho Parisiense (+R$7)</option>
-                        <option value="molhogongorzola">Molho de Gorgonzola (+R$8)</option>
-                        <option value="molhopicante">Molho Picante (+R$8)</option>
-                        <option value="molhostrogonoff">Molho de Strogonoff (+R$10)</option>
-                    </select>
-                </label>
-            </div>
-            <div>
-                <label for="tamanhopizza">Tamanho da Pizza:
-                    <select name="tamanhopizza" id="tamanhopizza">
-                        <option value="pequena">Broto (R$34.99)</option>
-                        <option value="media">Média (R$41.99)</option>
-                        <option value="grande">Grande (R$48.99)</option>
-                        <option value="gigante">Gigante (R$56.99)</option>
-                        <option value="familia">Família (R$66.99)</option>
-                    </select>
-                </label>
-            </div>
-            <div id="recheio">
-                <p>Recheios: (R$2 cada):</p>
-                <label><input class="recheiopizza" type="checkbox" name="catupiry" id="catupiry">Catupiry</label>
-                <label><input class="recheiopizza" type="checkbox" name="cheddar" id="cheddar">Cheddar</label>
-                <label><input class="recheiopizza" type="checkbox" name="azeitona" id="azeitona">Azeitona</label>
-                <label><input class="recheiopizza" type="checkbox" name="cebola" id="cebola">Cebola</label>
-                <label><input class="recheiopizza" type="checkbox" name="ervilha" id="ervilha">Ervilha</label>
-                <label><input class="recheiopizza" type="checkbox" name="milho" id="milho">Milho</label>
-                <label><input class="recheiopizza" type="checkbox" name="presunto" id="presunto">Presunto</label>
-                <label><input class="recheiopizza" type="checkbox" name="pimentao" id="pimentao">Pimentão</label>
-                <label><input class="recheiopizza" type="checkbox" name="palmito" id="palmito">Palmito</label>
-                <label><input class="recheiopizza" type="checkbox" name="brocolis" id="brocolis">Brócolis</label>
-
-            </div>
-            <div>
-                <p>Refrigerantes (R$6.00 cada):</p>
-                <label for="cocacola">Coca Cola:<input type="number" id="cocacola" value="0"></label>
-                <label for="cocacolazero"> Coca Cola Zero:<input type="number" id="cocacolazero" value="0"></label>
-                <label for="sprite">Sprite:<input type="number" id="sprite" value="0"></label>
-                <label for="puresa">Puresa:<input type="number" id="puresa" value="0"></label>
-                <label for="fantalaranja">Fanta Laranja:<input type="number" id="fantalaranja" value="0"></label>
-                <label for="fantauva">Fanta Uva:<input type="number" id="fantauva" value="0"></label>
-                <label for="pepis">Pepis:<input type="number" id="pepis" value="0"></label>
-                <label for="guarana">Guaraná:<input type="number" id="guarana" value="0"></label>
-            </div>
-            <div class="pedidototal">
-                Valor Total: R$<output name="total" id="total"></output>
-            </div>
-        </fieldset>
+      <fieldset>
+        <legend>Monte o seu pedido:</legend>
+        <div>
+          <label for="baseMolho"
+            >Molho:
+            <select name="baseMolho" id="baseMolho">
+              <option value="tomate">Molho de Tomate (padrão)</option>
+              <option value="azeite">Azeite de Oliva (+R$3)</option>
+              <option value="molhoBranco">Molho Branco (+R$5)</option>
+              <option value="molhoparisiense">Molho Parisiense (+R$7)</option>
+              <option value="molhogongorzola">
+                Molho de Gorgonzola (+R$8)
+              </option>
+              <option value="molhopicante">Molho Picante (+R$8)</option>
+              <option value="molhostrogonoff">
+                Molho de Strogonoff (+R$10)
+              </option>
+            </select>
+          </label>
+        </div>
+        <div>
+          <label for="tamanhopizza"
+            >Tamanho da Pizza:
+            <select name="tamanhopizza" id="tamanhopizza">
+              <option value="pequena">Broto (R$34.99)</option>
+              <option value="media">Média (R$41.99)</option>
+              <option value="grande">Grande (R$48.99)</option>
+              <option value="gigante">Gigante (R$56.99)</option>
+              <option value="familia">Família (R$66.99)</option>
+            </select>
+          </label>
+        </div>
+        <div id="recheio">
+          <p>Adicionais: (R$2 cada):</p>
+          <label
+            ><input
+              class="recheiopizza"
+              type="checkbox"
+              name="catupiry"
+              id="catupiry"
+            />Catupiry</label
+          >
+          <label
+            ><input
+              class="recheiopizza"
+              type="checkbox"
+              name="cheddar"
+              id="cheddar"
+            />Cheddar</label
+          >
+          <label
+            ><input
+              class="recheiopizza"
+              type="checkbox"
+              name="azeitona"
+              id="azeitona"
+            />Azeitona</label
+          >
+          <label
+            ><input
+              class="recheiopizza"
+              type="checkbox"
+              name="cebola"
+              id="cebola"
+            />Cebola</label
+          >
+          <label
+            ><input
+              class="recheiopizza"
+              type="checkbox"
+              name="ervilha"
+              id="ervilha"
+            />Ervilha</label
+          >
+          <label
+            ><input
+              class="recheiopizza"
+              type="checkbox"
+              name="milho"
+              id="milho"
+            />Milho</label
+          >
+          <label
+            ><input
+              class="recheiopizza"
+              type="checkbox"
+              name="presunto"
+              id="presunto"
+            />Presunto</label
+          >
+          <label
+            ><input
+              class="recheiopizza"
+              type="checkbox"
+              name="pimentao"
+              id="pimentao"
+            />Pimentão</label
+          >
+          <label
+            ><input
+              class="recheiopizza"
+              type="checkbox"
+              name="palmito"
+              id="palmito"
+            />Palmito</label
+          >
+          <label
+            ><input
+              class="recheiopizza"
+              type="checkbox"
+              name="brocolis"
+              id="brocolis"
+            />Brócolis</label
+          >
+        </div>
+        <div>
+          <p>Refrigerantes (R$6.00 cada):</p>
+          <label for="cocacola"
+            >Coca Cola:<input type="number" id="cocacola" value="0"
+          /></label>
+          <label for="cocacolazero">
+            Coca Cola Zero:<input type="number" id="cocacolazero" value="0"
+          /></label>
+          <label for="sprite"
+            >Sprite:<input type="number" id="sprite" value="0"
+          /></label>
+          <label for="puresa"
+            >Puresa:<input type="number" id="puresa" value="0"
+          /></label>
+          <label for="fantalaranja"
+            >Fanta Laranja:<input type="number" id="fantalaranja" value="0"
+          /></label>
+          <label for="fantauva"
+            >Fanta Uva:<input type="number" id="fantauva" value="0"
+          /></label>
+          <label for="pepis"
+            >Pepis:<input type="number" id="pepis" value="0"
+          /></label>
+          <label for="guarana"
+            >Guaraná:<input type="number" id="guarana" value="0"
+          /></label>
+        </div>
+        <div class="pedidototal">
+          Valor Total: R$<output name="total" id="total"></output>
+        </div>
+      </fieldset>
     </form>
     <button id="btnsubmit">Enviar</button>
     <button id="btnreset">Limpar formulario</button>
     <script>
-        window.addEventListener("load", e => {
-            // "ouvir" as alterações de controle de formulário à medida que elas acontecem imediatamente
-            document.getElementById("formPizza").addEventListener("input", atualizarValorTotal);
+      window.addEventListener("load", (e) => {
+        // "ouvir" as alterações de controle de formulário à medida que elas acontecem imediatamente
+        document
+          .getElementById("formPizza")
+          .addEventListener("input", atualizarValorTotal);
 
-            // executa uma redefinição personalizada do formulário quando o usuário clica em redefinir
-            // para que possamos disparar nosso próprio evento "resetfinished"
-            document.getElementById("formPizza").addEventListener("reset", e => {
-                e.target.reset();
-            });
-            document.getElementById("btnreset").addEventListener("click", e => {
-                // Aciona o evento reset manualmente para acionarmos nosso próprio custom
-                // evento para redefinir o valor total do formulário
-                evt = new Event("reset");
-                document.getElementById("formPizza").dispatchEvent(evt);
-                evt = new Event("resetfinished");
-                document.getElementById("formPizza").dispatchEvent(evt);
-            });
-            // Quando nosso evento resetfinished for acionado, atualizar o valor total do formulário
-            // Todos os controles do formulário devem ser redefinidos neste ponto
-            document.getElementById("formPizza").addEventListener("resetfinished", e => {
-                atualizarValorTotal();
-            });
-
-            // inicializa o valor total
-            atualizarValorTotal();
+        // executa uma redefinição personalizada do formulário quando o usuário clica em redefinir
+        // para que possamos disparar nosso próprio evento "resetfinished"
+        document.getElementById("formPizza").addEventListener("reset", (e) => {
+          e.target.reset();
         });
+        document.getElementById("btnreset").addEventListener("click", (e) => {
+          // Aciona o evento reset manualmente para acionarmos nosso próprio custom
+          // evento para redefinir o valor total do formulário
+          evt = new Event("reset");
+          document.getElementById("formPizza").dispatchEvent(evt);
+          evt = new Event("resetfinished");
+          document.getElementById("formPizza").dispatchEvent(evt);
+        });
+        // Quando nosso evento resetfinished for acionado, atualizar o valor total do formulário
+        // Todos os controles do formulário devem ser redefinidos neste ponto
+        document
+          .getElementById("formPizza")
+          .addEventListener("resetfinished", (e) => {
+            atualizarValorTotal();
+          });
 
-        function atualizarValorTotal() {
-            let totalItens = document.getElementById("total");
-            let valortotal = 0.0;
+        // inicializa o valor total
+        atualizarValorTotal();
+      });
 
-            switch (document.getElementById("baseMolho").selectedIndex) {
-                case 1:
-                    valortotal += 1;
-                    break;
-                case 2:
-                    valortotal += 2;
-                    break;
-            }
+      function atualizarValorTotal() {
+        let totalItens = document.getElementById("total");
+        let valortotal = 0.0;
 
-            switch (document.getElementById("tamanhopizza").selectedIndex) {
-                case 0:
-                    valortotal += 34.99;
-                    break;
-                case 1:
-                    valortotal += 41.99;
-                    break;
-                case 2:
-                    valortotal += 48.99;
-                    break;
+        switch (document.getElementById("baseMolho").selectedIndex) {
+          case 1:
+            valortotal += 3;
+            break;
 
-                case 3:
-                    valortotal += 56.99;
-                    break;
+          case 2:
+            valortotal += 5;
+            break;
 
-                case 4:
-                    valortotal += 66.99;
-                    break;
-            }
+          case 3:
+            valortotal += 7;
+            break;
 
-            tops = document.getElementById("recheio").getElementsByClassName("recheiopizza");
-            for (const topping of tops) {
-                if (topping.checked) {
-                    valortotal += 2;
-                }
-            }
+          case 4:
+            valortotal += 8;
+            break;
 
-            if (!isNaN(val = parseInt(document.getElementById("cocacola").value))) {
-                valortotal += val * 6;
-            }
-            if (!isNaN(val = parseInt(document.getElementById("cocacolazero").value))) {
-                valortotal += val * 6;
-            }
-            if (!isNaN(val = parseInt(document.getElementById("sprite").value))) {
-                valortotal += val * 6;
-            }
+          case 5:
+            valortotal += 8;
+            break;
 
-            if (!isNaN(val = parseInt(document.getElementById("puresa").value))) {
-                valortotal += val * 6;
-            }
-            if (!isNaN(val = parseInt(document.getElementById("fantalaranja").value))) {
-                valortotal += val * 6;
-            }
-            if (!isNaN(val = parseInt(document.getElementById("fantauva").value))) {
-                valortotal += val * 6;
-            }
-            if (!isNaN(val = parseInt(document.getElementById("pepis").value))) {
-                valortotal += val * 6;
-            }
-            if (!isNaN(val = parseInt(document.getElementById("guarana").value))) {
-                valortotal += val * 6;
-            }
-            totalItens.value = valortotal.toFixed(2);
+          case 6:
+            valortotal += 10;
+            break;
         }
+        switch (document.getElementById("tamanhopizza").selectedIndex) {
+          case 0:
+            valortotal += 34.99;
+            break;
+
+          case 1:
+            valortotal += 41.99;
+            break;
+
+          case 2:
+            valortotal += 48.99;
+            break;
+
+          case 3:
+            valortotal += 56.99;
+            break;
+
+          case 4:
+            valortotal += 66.99;
+            break;
+        }
+
+        tops = document
+          .getElementById("recheio")
+          .getElementsByClassName("recheiopizza");
+        for (const topping of tops) {
+          if (topping.checked) {
+            valortotal += 2;
+          }
+        }
+
+        if (
+          !isNaN((val = parseInt(document.getElementById("cocacola").value)))
+        ) {
+          valortotal += val * 6;
+        }
+        if (
+          !isNaN(
+            (val = parseInt(document.getElementById("cocacolazero").value))
+          )
+        ) {
+          valortotal += val * 6;
+        }
+        if (!isNaN((val = parseInt(document.getElementById("sprite").value)))) {
+          valortotal += val * 6;
+        }
+
+        if (!isNaN((val = parseInt(document.getElementById("puresa").value)))) {
+          valortotal += val * 6;
+        }
+        if (
+          !isNaN(
+            (val = parseInt(document.getElementById("fantalaranja").value))
+          )
+        ) {
+          valortotal += val * 6;
+        }
+        if (
+          !isNaN((val = parseInt(document.getElementById("fantauva").value)))
+        ) {
+          valortotal += val * 6;
+        }
+        if (!isNaN((val = parseInt(document.getElementById("pepis").value)))) {
+          valortotal += val * 6;
+        }
+        if (
+          !isNaN((val = parseInt(document.getElementById("guarana").value)))
+        ) {
+          valortotal += val * 6;
+        }
+        totalItens.value = valortotal.toFixed(2);
+      }
     </script>
 
     <div>
-        <button class="btn">Dark</button>
+      <button class="btn">Dark</button>
     </div>
 
     <script src="./app.js"></script>
     <noscript>Habilitar JS para continuar</noscript>
-</body>
-
+  </body>
 </html>
