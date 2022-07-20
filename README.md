@@ -1,7 +1,7 @@
 # Pizzaria
 ## Cardápio de uma pizzaria 
 
-  Aqui vamos ver um site programado para ser um cardapio de uma pizaria, onde voçê mota ela do seu jeito.
+  Aqui vamos ver um site programado para ser um cardapio de uma pizaria, onde voçê monta ela do seu jeito.
   
   **observação:** o site está em andamento não tem nada concluído ainda.
 
